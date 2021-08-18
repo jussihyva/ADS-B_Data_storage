@@ -8,7 +8,7 @@ services:
     ports:
       - '8086:8086'
     volumes:
-      - influxdb-storage:/var/lib/influxdb
+      - docker-compose-influxdb-grafana_influxdb-storage:/var/lib/influxdb
       - ./influxdb.conf:/etc/influxdb/influxdb.conf
       - ./influxdb-selfsigned.key:/etc/ssl/private/influxdb-selfsigned.key:ro
       - ./influxdb-selfsigned.crt:/etc/ssl/certs/influxdb-selfsigned.crt:ro
@@ -24,7 +24,7 @@ services:
     ports:
       - '127.0.0.1:8888:8888'
     volumes:
-      - chronograf-storage:/var/lib/chronograf
+      - docker-compose-influxdb-grafana_chronograf-storage:/var/lib/chronograf
     depends_on:
       - influxdb
     environment:
@@ -37,9 +37,9 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - grafana-storage:/var/lib/grafana
+      - docker-compose-influxdb-grafana_grafana-storage:/var/lib/grafana
       - ./grafana-provisioning/:/etc/grafana/provisioning
-      - ./influxdb-selfsigned.key_read:/etc/ssl/private/influxdb-selfsigned.key:rw
+      - ./influxdb-selfsigned.key:/etc/ssl/private/influxdb-selfsigned.key:rw
       - ./influxdb-selfsigned.crt:/etc/ssl/certs/influxdb-selfsigned.crt:ro
       - ./grafana.ini:/etc/grafana/grafana.ini:ro
     depends_on:
@@ -48,7 +48,10 @@ services:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
 volumes:
-  influxdb-storage:
-  chronograf-storage:
-  grafana-storage:
+  docker-compose-influxdb-grafana_influxdb-storage:
+          external: true
+  docker-compose-influxdb-grafana_chronograf-storage:
+          external: true
+  docker-compose-influxdb-grafana_grafana-storage:
+          external: true
 

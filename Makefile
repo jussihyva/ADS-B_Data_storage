@@ -35,6 +35,7 @@ $(SELF_SIGNED_CRT):
 	-subj "/C=FI/ST=Uusimaa/L=Espoo/O=/OU=/CN="
 	chmod 644 ./influxdb-selfsigned.crt
 	chmod 600 ./influxdb-selfsigned.key
+	sudo chown 472:472 ./influxdb-selfsigned.key
 
 print_key:
 	openssl x509 -in influxdb-selfsigned.crt -text -noout
