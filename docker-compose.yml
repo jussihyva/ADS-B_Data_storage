@@ -1,0 +1,54 @@
+version: '3'
+services:
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    env_file:
+      - ./.env
+    ports:
+      - '8086:8086'
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+      - ./influxdb.conf:/etc/influxdb/influxdb.conf
+      - ./influxdb-selfsigned.key:/etc/ssl/private/influxdb-selfsigned.key:ro
+      - ./influxdb-selfsigned.crt:/etc/ssl/certs/influxdb-selfsigned.crt:ro
+    environment:
+      - INFLUXDB_DB=${INFLUXDB_DB}
+      - INFLUXDB_ADMIN_USER=${INFLUXDB_ADMIN_NAME}
+      - INFLUXDB_ADMIN_PASSWORD="${INFLUXDB_ADMIN_PASSWORD}"
+      - INFLUXDB_USER=${INFLUXDB_USER_NAME}
+      - INFLUXDB_USER_PASSWORD=${INFLUXDB_USER_PASSWORD}
+  chronograf:
+    image: chronograf:latest
+    container_name: chronograf
+    ports:
+      - '127.0.0.1:8888:8888'
+    volumes:
+      - chronograf-storage:/var/lib/chronograf
+    depends_on:
+      - influxdb
+    environment:
+      - INFLUXDB_URL=https://influxdb:8086
+      - INFLUXDB_USERNAME=${INFLUXDB_ADMIN_NAME}
+      - INFLUXDB_PASSWORD=${INFLUXDB_ADMIN_PASSWORD}
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - '3000:3000'
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana-provisioning/:/etc/grafana/provisioning
+      - ./influxdb-selfsigned.key_read:/etc/ssl/private/influxdb-selfsigned.key:rw
+      - ./influxdb-selfsigned.crt:/etc/ssl/certs/influxdb-selfsigned.crt:ro
+      - ./grafana.ini:/etc/grafana/grafana.ini:ro
+    depends_on:
+      - influxdb
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+volumes:
+  influxdb-storage:
+  chronograf-storage:
+  grafana-storage:
+

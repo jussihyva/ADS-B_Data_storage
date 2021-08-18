@@ -1,0 +1,46 @@
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+  "manifestVersion": "2.0.0",
+  "signatureType": "community",
+  "signedByOrg": "pr0ps",
+  "signedByOrgName": "pr0ps",
+  "plugin": "pr0ps-trackmap-panel",
+  "version": "2.1.2",
+  "time": 1615351975584,
+  "keyId": "7e4d0c6a708866e7",
+  "files": {
+    "partials/module.css": "123259cd5dfd9943cac7a438093effa154d98f151c8261bfc9110689bb6ee210",
+    "partials/options.html": "879fc575d8c85bedfc8a08061ff0e2517f5edf4ce8935a6851a2ee5ecdca2a4a",
+    "partials/module.html": "7864eca1c0ca2cb9bcfe42b0b57079e334651faacfcd09e3934e8e0fcbdf082c",
+    "leaflet/leaflet.js": "c837347a297c1a35852aa375392cc74950a2b868214e8b1909c4637b8b63ee24",
+    "leaflet/leaflet.css": "04f7caf4ce6fdf87365cfea9d1cc55cf599440bb2dd204cb9349a573b92ea1d0",
+    "leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+    "leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+    "leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+    "leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+    "leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+    "trackmap_ctrl.js": "c2a61ab522098d41186ce872120b08f2610676be8d7495d22db188ef7e1af1d8",
+    "trackmap_ctrl.js.map": "a3202f4725b4f7c1ed892e5e95db1e65e603349c320da198d2c3bd4d4a1a14c6",
+    "README.md": "b01e7bb5e585065d210ec1fa0a8d8c921c1ce40e1adcf6078b339827e5cc60be",
+    "module.js.map": "9da670cfba237dcfa27bb38ef56be62e15c65199ad0481d8940b90b92efe506b",
+    "module.js": "d0176e3b86fc425f82ee3ce28b73a28f3393db34bb3a7a1ca51b74043e43c368",
+    "img/topo-boxselect.jpg": "841f1491cb777a93f1579d950df83c1c00f40a2b284d6680025b6e9b19e4209c",
+    "img/topo-crosshair.jpg": "1090053bcb1f0cd005f9ad2bd3b9b66e7174e45905cef363723a6ef75bfc4170",
+    "img/logo.svg": "0e96903ec06714976a6117661d3a5c2184ba5b2ef20a3429fd0ce903c3ac98b7",
+    "img/satellite-picker.jpg": "799c2940e76ed71bd183331aff30dd2292c21aef8dfc4295077eb417e551fd28",
+    "plugin.json": "cd53d7dd1e15ec2048861ba9da0ca3d4bc4e50d69814c3e7253403bac51143f5"
+  }
+}
+-----BEGIN PGP SIGNATURE-----
+Version: OpenPGP.js v4.10.1
+Comment: https://openpgpjs.org
+
+wqEEARMKAAYFAmBIUKcACgkQfk0ManCIZufFewIJAQvn8kb5U4IBu2etix2v
+ca1of//JGbdrrzAz5Xs+s/190BhUUoXmH1kerwd4hnKuqhBgCzcEUj7ffd77
+mjc2dF+MAgd1b0pW1qcI/NN2UyoqfojCE5aUpm2+VhJtSHlBz6Uktxyy77/h
+PV5WkOTz9O8al2jr7UsfBfl/megbHX/+Q41ofA==
+=lfY4
+-----END PGP SIGNATURE-----
