@@ -1,3 +1,6 @@
 [submodule "grafana-provisioning/plugins/pr0ps-trackmap-panel"]
 	path = grafana-provisioning/plugins/pr0ps-trackmap-panel
 	url = https://github.com/pR0Ps/grafana-trackmap-panel.git
+[submodule "grafana-provisioning/plugins/grafana-histogram-panel"]
+	path = grafana-provisioning/plugins/grafana-histogram-panel
+	url = https://github.com/mtanda/grafana-histogram-panel.git
