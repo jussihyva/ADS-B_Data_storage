@@ -1,14 +1,16 @@
 .PHONY: all build start login stop remove create_keys print_key clean fclean
 
+DOCKER_COMPOSE	=	docker-compose
+
 SELF_SIGNED_CRT	=	./influxdb-selfsigned.crt
 
 all: start
 
 build: $(SELF_SIGNED_CRT)
-	sudo docker-compose build
+	sudo $(DOCKER_COMPOSE) build
 
 start: build
-	sudo docker-compose up -d
+	sudo $(DOCKER_COMPOSE) up -d
 
 login:
 	sudo docker exec -it influxdb bash
@@ -17,14 +19,9 @@ login_grafana:
 	sudo docker exec -it grafana bash
 
 stop:
-	sudo docker kill chronograf
-	sudo docker kill grafana
-	sudo docker kill influxdb
+	-$(DOCKER_COMPOSE) down
 
 remove: stop
-	sudo docker rm chronograf
-	sudo docker rm grafana
-	sudo docker rm influxdb
 
 $(SELF_SIGNED_CRT):
 	echo "FI\nUusimaa\n" | \
