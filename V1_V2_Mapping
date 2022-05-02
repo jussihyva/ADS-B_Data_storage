@@ -1,0 +1,3 @@
+influx v1 dbrp list
+
+influx v1 dbrp create --db readsb --rp readsb --bucket-id 111cc18bd4f2797e --default
