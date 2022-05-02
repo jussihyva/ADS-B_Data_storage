@@ -1,15 +1,15 @@
 docker run -p 8086:8086 \
   -v docker-compose-influxdb-grafana_influxdb-storage:/var/lib/influxdb \
   -v $PWD/influxdb.conf:/etc/influxdb/influxdb.conf \
-  -v $PWD/influxdb-selfsigned.key:/etc/ssl/private/influxdb-selfsigned.key:ro \
-  -v $PWD/influxdb-selfsigned.crt:/etc/ssl/certs/influxdb-selfsigned.crt:ro \
-  -v docker-compose-influxdb-grafana_influxdb-storage:/var/lib/influxdb2 \
-  -v docker-compose-influxdb-grafana_influxdb-storage:/etc/influxdb2 \
+  -v $PWD/influxdb-selfsigned.key:/etc/ssl/influxdb-selfsigned.key:ro \
+  -v $PWD/influxdb-selfsigned.crt:/etc/ssl/influxdb-selfsigned.crt:ro \
+  -v ads-b_data_storage_influxdb_data-storage:/var/lib/influxdb2 \
+  -v ads-b_data_storage_influxdb_config-storage:/etc/influxdb2 \
   -e DOCKER_INFLUXDB_INIT_MODE=upgrade \
   -e DOCKER_INFLUXDB_INIT_USERNAME=admin \
   -e DOCKER_INFLUXDB_INIT_PASSWORD=LauluKuoro \
   -e DOCKER_INFLUXDB_INIT_ORG=Demo_Team \
   -e DOCKER_INFLUXDB_INIT_BUCKET=ML_Demo \
-  -e DOCKER_INFLUXDB_INIT_UPGRADE_V1_CONFIG=/root/influxdb/influxdb.conf \
-  influxdb:2.2
+  -e DOCKER_INFLUXDB_INIT_UPGRADE_V1_CONFIG=/etc/influxdb/influxdb.conf \
+  influxdb:2.2.0
 

@@ -40,3 +40,5 @@ print_key:
 clean: remove
 
 fclean: clean
+
+re: fclean start

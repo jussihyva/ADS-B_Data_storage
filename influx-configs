@@ -1,0 +1,5 @@
+[default]
+  url = "https://localhost:8086"
+  token = "VLLi387P25IKTsabHWX6ImPCnEbmMnWWI1UG4B6_VulA0663hpCNJcItFHRgk52cprfRy5u8ATB-jNa990s-Tg=="
+  org = "Demo_Team"
+  active = true
