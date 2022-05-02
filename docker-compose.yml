@@ -10,7 +10,7 @@ services:
     volumes:
       - influxdb_data-storage:/var/lib/influxdb2:rw
       - influxdb_config-storage:/etc/influxdb2:rw
-      - ./influxdb.yml:/etc/influxdb2/config.json:rw
+      - ./influxdb.json:/etc/influxdb2/config.json:rw
       - ./influx-configs:/etc/influxdb2/influx-configs:rw
       - ./influxdb-selfsigned.key:/etc/ssl/influxdb-selfsigned.key:ro
       - ./influxdb-selfsigned.crt:/etc/ssl/influxdb-selfsigned.crt:ro
