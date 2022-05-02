@@ -18,6 +18,9 @@ login:
 login_grafana:
 	sudo docker exec -it grafana bash
 
+login_telegraf:
+	sudo docker exec -it telegraf bash
+
 stop:
 	-$(DOCKER_COMPOSE) down
 
