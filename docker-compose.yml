@@ -38,23 +38,23 @@ services:
       - ./influxdb-selfsigned.key:/etc/ssl/private/influxdb-selfsigned.key:rw
       - ./influxdb-selfsigned.crt:/etc/ssl/certs/influxdb-selfsigned.crt:ro
       - ./grafana.ini:/etc/grafana/grafana.ini:ro
-    depends_on:
-      - influxdb
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+    depends_on:
+      - influxdb
   telegraf:
     restart: always
-    # env_file:
-    #   - ./.env_telegraf
+    env_file:
+      - ./.env
     image: telegraf:1.22.3
     container_name: telegraf
+    ports:
+      - '8086:8186/tcp'
     volumes:
       - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - ./influxdb-selfsigned.key:/etc/telegraf/key.pem:ro
       - ./influxdb-selfsigned.crt:/etc/telegraf/cert.pem:ro
-    ports:
-      - '8086:8186/tcp'
     entrypoint:
       - telegraf
 volumes:
